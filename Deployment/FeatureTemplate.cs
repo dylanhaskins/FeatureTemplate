@@ -1,14 +1,14 @@
 ﻿using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
 
-namespace FeatureABC.Deployment
+namespace Deployment
 {
-    public class FeatureABC : ImportExtension
+    public class AddName : ImportExtension
     {
-        public override string GetLongNameOfImport => "Feature ABC";
+        public override string GetLongNameOfImport => "AddName";
 
-        public override string GetImportPackageDataFolderName => "FeatureABC";
+        public override string GetImportPackageDataFolderName => "AddName";
 
-        public override string GetImportPackageDescriptionText => "Feature ABC";
+        public override string GetImportPackageDescriptionText => "AddName";
 
         public override bool AfterPrimaryImport()
         {
@@ -22,7 +22,7 @@ namespace FeatureABC.Deployment
 
         public override string GetNameOfImport(bool plural)
         {
-            return "Feature ABC";
+            return "AddName";
         }
 
         public override void InitializeCustomExtension()

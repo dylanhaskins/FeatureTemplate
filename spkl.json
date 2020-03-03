@@ -21,7 +21,7 @@
             */
       "files": [
         {
-          "uniquename": "fea_/systemuser.js",
+          "uniquename": "prefix_/systemuser.js",
           "file": "systemuser.js",
           "description": "System User JavaScript Library"
         }

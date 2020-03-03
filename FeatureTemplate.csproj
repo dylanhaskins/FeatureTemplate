@@ -37,7 +37,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Plugins.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>FeatureTemplate.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Unpack|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -265,7 +265,8 @@
   <Import Project="..\Services\Services.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>npm run dist</PreBuildEvent>
+    <PreBuildEvent>npm install
+    npm run dist</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Unpack (powershell.exe -ExecutionPolicy Bypass -File .\Scripts\SolutionExport.ps1)
