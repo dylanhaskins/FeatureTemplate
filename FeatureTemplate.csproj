@@ -228,6 +228,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="map.xml" />
+    <Content Include="ReferenceData\data.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ReferenceData\data_schema.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ReferenceData\[Content_Types].xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="webpack.config.js" />
     <Content Include="XrmContext\FSharp.Core.dll" />
     <Content Include="XrmContext\Microsoft.Crm.Sdk.Proxy.dll" />
