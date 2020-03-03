@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Mapping>
   <FileToFile map="PluginAssemblies\**\PowerPlatformDevOpsPlugins.dll" to="..\bin\**\PowerPlatformDevOpsPlugins.dll" />
-  <FileToPath map="WebResources\*.*" to="..\WebResources\dist\**" />
-  <FileToPath map="WebResources\**\*.*" to="..\WebResources\dist\**" />
+  <FileToPath map="WebResources\*.*" to="..\dist\**" />
+  <FileToPath map="WebResources\**\*.*" to="..\dist\**" />
 </Mapping>
