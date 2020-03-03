@@ -39,6 +39,16 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>FeatureTemplate.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'SolutionPackager|AnyCPU'">
+    <OutputPath>bin\SolutionPackager\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -259,7 +269,7 @@
     npm run dist</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Debug (powershell.exe -ExecutionPolicy Bypass -File .\Scripts\SolutionExport.ps1)
+    <PostBuildEvent>if $(ConfigurationName) == SolutionPackager (powershell.exe -ExecutionPolicy Bypass -File .\Scripts\SolutionExport.ps1)
 
 roslyn\csc.exe /target:library ..\..\Deployment\FeatureTemplatePackage.cs /r:Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase.dll /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.ComponentModel.Composition.dll"
 copy FeatureTemplatePackage.dll ..\..\..\PackageDeployer\bin\$(ConfigurationName)\.
