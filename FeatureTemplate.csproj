@@ -227,6 +227,7 @@
     <Content Include="Deployment\FeatureTemplate\ImportConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="map.xml" />
     <Content Include="webpack.config.js" />
     <Content Include="XrmContext\FSharp.Core.dll" />
     <Content Include="XrmContext\Microsoft.Crm.Sdk.Proxy.dll" />
