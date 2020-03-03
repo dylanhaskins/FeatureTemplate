@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
+using System.ComponentModel.Composition;
 
 namespace Deployment
 {
+    [Export(typeof(IImportExtensions))]
     public class AddName : ImportExtension
     {
         public override string GetLongNameOfImport => "AddName";
