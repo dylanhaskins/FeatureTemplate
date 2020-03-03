@@ -143,7 +143,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Deployment\FeatureTemplate.cs" />
+    <Compile Include="Deployment\FeatureTemplatePackage.cs" />
     <Compile Include="Entities\Context\BusinessUnit.cs" />
     <Compile Include="Entities\Context\GlobalOptionSets.cs" />
     <Compile Include="Entities\Context\SystemUser.cs" />
@@ -261,8 +261,8 @@
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Debug (powershell.exe -ExecutionPolicy Bypass -File .\Scripts\SolutionExport.ps1)
 
-roslyn\csc.exe /target:library ..\..\Deployment\FeatureTemplate.cs /r:Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase.dll /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.ComponentModel.Composition.dll"
-copy FeatureTemplate.dll ..\..\..\PackageDeployer\bin\$(ConfigurationName)\.
+roslyn\csc.exe /target:library ..\..\Deployment\FeatureTemplatePackage.cs /r:Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase.dll /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.ComponentModel.Composition.dll"
+copy FeatureTemplatePackage.dll ..\..\..\PackageDeployer\bin\$(ConfigurationName)\.
 xcopy Deployment\. ..\..\..\PackageDeployer\bin\$(ConfigurationName)\. /s/e/y</PostBuildEvent>
   </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
