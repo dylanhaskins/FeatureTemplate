@@ -28,9 +28,105 @@ namespace CCMS.Entities {
                 base(service) {
         }
         
+        public IQueryable<ActivityMimeAttachment> ActivityMimeAttachmentSet {
+            get {
+                return CreateQuery<ActivityMimeAttachment>();
+            }
+        }
+        
+        public IQueryable<ActivityParty> ActivityPartySet {
+            get {
+                return CreateQuery<ActivityParty>();
+            }
+        }
+        
         public IQueryable<BusinessUnit> BusinessUnitSet {
             get {
                 return CreateQuery<BusinessUnit>();
+            }
+        }
+        
+        public IQueryable<dia_applicationtype> dia_applicationtypeSet {
+            get {
+                return CreateQuery<dia_applicationtype>();
+            }
+        }
+        
+        public IQueryable<dia_autonumberconfiguration> dia_autonumberconfigurationSet {
+            get {
+                return CreateQuery<dia_autonumberconfiguration>();
+            }
+        }
+        
+        public IQueryable<dia_configuration> dia_configurationSet {
+            get {
+                return CreateQuery<dia_configuration>();
+            }
+        }
+        
+        public IQueryable<dia_externalconfiguration> dia_externalconfigurationSet {
+            get {
+                return CreateQuery<dia_externalconfiguration>();
+            }
+        }
+        
+        public IQueryable<dia_product_applicationtype> dia_product_applicationtypeSet {
+            get {
+                return CreateQuery<dia_product_applicationtype>();
+            }
+        }
+        
+        public IQueryable<dia_supportingdocument> dia_supportingdocumentSet {
+            get {
+                return CreateQuery<dia_supportingdocument>();
+            }
+        }
+        
+        public IQueryable<Email> EmailSet {
+            get {
+                return CreateQuery<Email>();
+            }
+        }
+        
+        public IQueryable<Incident> IncidentSet {
+            get {
+                return CreateQuery<Incident>();
+            }
+        }
+        
+        public IQueryable<PriceLevel> PriceLevelSet {
+            get {
+                return CreateQuery<PriceLevel>();
+            }
+        }
+        
+        public IQueryable<Product> ProductSet {
+            get {
+                return CreateQuery<Product>();
+            }
+        }
+        
+        public IQueryable<Queue> QueueSet {
+            get {
+                return CreateQuery<Queue>();
+            }
+        }
+        
+        public IQueryable<QueueMembership> QueueMembershipSet {
+            get {
+                return CreateQuery<QueueMembership>();
+            }
+        }
+        
+        public IQueryable<SalesOrder> SalesOrderSet {
+            get {
+                return CreateQuery<SalesOrder>();
+            }
+        }
+        
+        public IQueryable<SalesOrderDetail> SalesOrderDetailSet {
+            get {
+                return CreateQuery<SalesOrderDetail>();
             }
         }
         

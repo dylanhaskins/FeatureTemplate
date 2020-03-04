@@ -16,4 +16,355 @@ using System.Runtime.Serialization;
 
 namespace CCMS.Entities {
     
+    
+    [DataContract()]
+    public enum componentstate {
+        
+        [EnumMember()]
+        Published = 0,
+        
+        [EnumMember()]
+        Unpublished = 1,
+        
+        [EnumMember()]
+        Deleted = 2,
+        
+        [EnumMember()]
+        DeletedUnpublished = 3,
+    }
+    
+    [DataContract()]
+    public enum dia_documentrejectionreason {
+        
+        [EnumMember()]
+        Filesize = 100000000,
+        
+        [EnumMember()]
+        Filetype = 100000001,
+        
+        [EnumMember()]
+        Malwaredetected = 100000002,
+    }
+    
+    [DataContract()]
+    public enum dia_yesno {
+        
+        [EnumMember()]
+        Yes = 100000000,
+        
+        [EnumMember()]
+        No = 100000001,
+    }
+    
+    [DataContract()]
+    public enum activitypointer_deliveryprioritycode {
+        
+        [EnumMember()]
+        Low = 0,
+        
+        [EnumMember()]
+        Normal = 1,
+        
+        [EnumMember()]
+        High = 2,
+    }
+    
+    [DataContract()]
+    public enum activitypointer_activitytypecode {
+        
+        [EnumMember()]
+        Appointment = 4201,
+        
+        [EnumMember()]
+        Email = 4202,
+        
+        [EnumMember()]
+        Fax = 4204,
+        
+        [EnumMember()]
+        CaseResolution = 4206,
+        
+        [EnumMember()]
+        Letter = 4207,
+        
+        [EnumMember()]
+        OpportunityClose = 4208,
+        
+        [EnumMember()]
+        OrderClose = 4209,
+        
+        [EnumMember()]
+        PhoneCall = 4210,
+        
+        [EnumMember()]
+        QuoteClose = 4211,
+        
+        [EnumMember()]
+        Task = 4212,
+        
+        [EnumMember()]
+        ServiceActivity = 4214,
+        
+        [EnumMember()]
+        RecurringAppointment = 4251,
+        
+        [EnumMember()]
+        CampaignResponse = 4401,
+        
+        [EnumMember()]
+        CampaignActivity = 4402,
+        
+        [EnumMember()]
+        QuickCampaign = 4406,
+        
+        [EnumMember()]
+        Surveyinvite = 10036,
+        
+        [EnumMember()]
+        Surveyresponse = 10037,
+        
+        [EnumMember()]
+        BookingAlert = 10041,
+    }
+    
+    [DataContract()]
+    public enum incident_caseorigincode {
+        
+        [EnumMember()]
+        Phone = 1,
+        
+        [EnumMember()]
+        Mail = 2,
+        
+        [EnumMember()]
+        Online = 3,
+        
+        [EnumMember()]
+        Counter = 100000000,
+    }
+    
+    [DataContract()]
+    public enum servicestage {
+        
+        [EnumMember()]
+        Identify = 0,
+        
+        [EnumMember()]
+        Research = 1,
+        
+        [EnumMember()]
+        Resolve = 2,
+    }
+    
+    [DataContract()]
+    public enum socialactivity_postmessagetype {
+        
+        [EnumMember()]
+        PublicMessage = 0,
+        
+        [EnumMember()]
+        PrivateMessage = 1,
+    }
+    
+    [DataContract()]
+    public enum dia_paymentmethod {
+        
+        [EnumMember()]
+        Cash = 100000000,
+        
+        [EnumMember()]
+        Creditcard = 100000001,
+        
+        [EnumMember()]
+        Eftpos = 100000002,
+        
+        [EnumMember()]
+        Cheque = 100000003,
+    }
+    
+    [DataContract()]
+    public enum qooi_skippricecalculation {
+        
+        [EnumMember()]
+        DoPriceCalcAlways = 0,
+        
+        [EnumMember()]
+        SkipPriceCalcOnRetrieve = 1,
+    }
+    
+    [DataContract()]
+    public enum qooi_pricingerrorcode {
+        
+        [EnumMember()]
+        None = 0,
+        
+        [EnumMember()]
+        DetailError = 1,
+        
+        [EnumMember()]
+        MissingPriceLevel = 2,
+        
+        [EnumMember()]
+        InactivePriceLevel = 3,
+        
+        [EnumMember()]
+        MissingQuantity = 4,
+        
+        [EnumMember()]
+        MissingUnitPrice = 5,
+        
+        [EnumMember()]
+        MissingProduct = 6,
+        
+        [EnumMember()]
+        InvalidProduct = 7,
+        
+        [EnumMember()]
+        MissingPricingCode = 8,
+        
+        [EnumMember()]
+        InvalidPricingCode = 9,
+        
+        [EnumMember()]
+        MissingUOM = 10,
+        
+        [EnumMember()]
+        ProductNotInPriceLevel = 11,
+        
+        [EnumMember()]
+        MissingPriceLevelAmount = 12,
+        
+        [EnumMember()]
+        MissingPriceLevelPercentage = 13,
+        
+        [EnumMember()]
+        MissingPrice = 14,
+        
+        [EnumMember()]
+        MissingCurrentCost = 15,
+        
+        [EnumMember()]
+        MissingStandardCost = 16,
+        
+        [EnumMember()]
+        InvalidPriceLevelAmount = 17,
+        
+        [EnumMember()]
+        InvalidPriceLevelPercentage = 18,
+        
+        [EnumMember()]
+        InvalidPrice = 19,
+        
+        [EnumMember()]
+        InvalidCurrentCost = 20,
+        
+        [EnumMember()]
+        InvalidStandardCost = 21,
+        
+        [EnumMember()]
+        InvalidRoundingPolicy = 22,
+        
+        [EnumMember()]
+        InvalidRoundingOption = 23,
+        
+        [EnumMember()]
+        InvalidRoundingAmount = 24,
+        
+        [EnumMember()]
+        PriceCalculationError = 25,
+        
+        [EnumMember()]
+        InvalidDiscountType = 26,
+        
+        [EnumMember()]
+        DiscountTypeInvalidState = 27,
+        
+        [EnumMember()]
+        InvalidDiscount = 28,
+        
+        [EnumMember()]
+        InvalidQuantity = 29,
+        
+        [EnumMember()]
+        InvalidPricingPrecision = 30,
+        
+        [EnumMember()]
+        MissingProductDefaultUOM = 31,
+        
+        [EnumMember()]
+        MissingProductUOMSchedule = 32,
+        
+        [EnumMember()]
+        InactiveDiscountType = 33,
+        
+        [EnumMember()]
+        InvalidPriceLevelCurrency = 34,
+        
+        [EnumMember()]
+        PriceAttributeOutOfRange = 35,
+        
+        [EnumMember()]
+        BaseCurrencyAttributeOverflow = 36,
+        
+        [EnumMember()]
+        BaseCurrencyAttributeUnderflow = 37,
+        
+        [EnumMember()]
+        Transactioncurrencyisnotsetfortheproductpricelistitem = 38,
+    }
+    
+    [DataContract()]
+    public enum dia_paymenttype {
+        
+        [EnumMember()]
+        Payment = 100000000,
+        
+        [EnumMember()]
+        Refund = 100000001,
+    }
+    
+    [DataContract()]
+    public enum qooidetail_skippricecalculation {
+        
+        [EnumMember()]
+        DoPriceCalcAlways = 0,
+        
+        [EnumMember()]
+        SkipPriceCalcOnCreate = 1,
+        
+        [EnumMember()]
+        SkipPriceCalcOnUpdate = 2,
+    }
+    
+    [DataContract()]
+    public enum qooiproduct_producttype {
+        
+        [EnumMember()]
+        Product = 1,
+        
+        [EnumMember()]
+        Bundle = 2,
+        
+        [EnumMember()]
+        RequiredBundleProduct = 3,
+        
+        [EnumMember()]
+        OptionalBundleProduct = 4,
+        
+        [EnumMember()]
+        ProjectbasedService = 5,
+    }
+    
+    [DataContract()]
+    public enum qooiproduct_propertiesconfigurationstatus {
+        
+        [EnumMember()]
+        Edit = 0,
+        
+        [EnumMember()]
+        Rectify = 1,
+        
+        [EnumMember()]
+        NotConfigured = 2,
+    }
 }

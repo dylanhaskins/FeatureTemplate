@@ -1086,6 +1086,96 @@ namespace CCMS.Entities {
             }
         }
         
+        [RelationshipSchemaName("business_unit_dia_applicationtype")]
+        public IEnumerable<dia_applicationtype> business_unit_dia_applicationtype {
+            get {
+                return GetRelatedEntities<dia_applicationtype>("business_unit_dia_applicationtype", null);
+            }
+            set {
+                SetRelatedEntities("business_unit_dia_applicationtype", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("business_unit_dia_autonumberconfiguration")]
+        public IEnumerable<dia_autonumberconfiguration> business_unit_dia_autonumberconfiguration {
+            get {
+                return GetRelatedEntities<dia_autonumberconfiguration>("business_unit_dia_autonumberconfiguration", null);
+            }
+            set {
+                SetRelatedEntities("business_unit_dia_autonumberconfiguration", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("business_unit_dia_externalconfiguration")]
+        public IEnumerable<dia_externalconfiguration> business_unit_dia_externalconfiguration {
+            get {
+                return GetRelatedEntities<dia_externalconfiguration>("business_unit_dia_externalconfiguration", null);
+            }
+            set {
+                SetRelatedEntities("business_unit_dia_externalconfiguration", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("business_unit_dia_supportingdocument")]
+        public IEnumerable<dia_supportingdocument> business_unit_dia_supportingdocument {
+            get {
+                return GetRelatedEntities<dia_supportingdocument>("business_unit_dia_supportingdocument", null);
+            }
+            set {
+                SetRelatedEntities("business_unit_dia_supportingdocument", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("business_unit_email_activities")]
+        public IEnumerable<Email> business_unit_email_activities {
+            get {
+                return GetRelatedEntities<Email>("business_unit_email_activities", null);
+            }
+            set {
+                SetRelatedEntities("business_unit_email_activities", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("business_unit_incidents")]
+        public IEnumerable<Incident> business_unit_incidents {
+            get {
+                return GetRelatedEntities<Incident>("business_unit_incidents", null);
+            }
+            set {
+                SetRelatedEntities("business_unit_incidents", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("business_unit_orders")]
+        public IEnumerable<SalesOrder> business_unit_orders {
+            get {
+                return GetRelatedEntities<SalesOrder>("business_unit_orders", null);
+            }
+            set {
+                SetRelatedEntities("business_unit_orders", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("business_unit_queues")]
+        public IEnumerable<Queue> business_unit_queues {
+            get {
+                return GetRelatedEntities<Queue>("business_unit_queues", null);
+            }
+            set {
+                SetRelatedEntities("business_unit_queues", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("business_unit_queues2")]
+        public IEnumerable<Queue> business_unit_queues2 {
+            get {
+                return GetRelatedEntities<Queue>("business_unit_queues2", null);
+            }
+            set {
+                SetRelatedEntities("business_unit_queues2", null, value);
+            }
+        }
+        
         [RelationshipSchemaName("business_unit_system_users")]
         public IEnumerable<SystemUser> business_unit_system_users {
             get {
@@ -1156,7 +1246,14 @@ namespace CCMS.Entities {
     }
     
     [DataContract()]
-    public enum BusinessUnit_Address1_AddressTypeCode {
+    public enum BusinessUnit_Address2_ShippingMethodCode {
+        
+        [EnumMember()]
+        DefaultValue = 1,
+    }
+    
+    [DataContract()]
+    public enum BusinessUnit_Address1_ShippingMethodCode {
         
         [EnumMember()]
         DefaultValue = 1,
@@ -1170,14 +1267,7 @@ namespace CCMS.Entities {
     }
     
     [DataContract()]
-    public enum BusinessUnit_Address2_ShippingMethodCode {
-        
-        [EnumMember()]
-        DefaultValue = 1,
-    }
-    
-    [DataContract()]
-    public enum BusinessUnit_Address1_ShippingMethodCode {
+    public enum BusinessUnit_Address1_AddressTypeCode {
         
         [EnumMember()]
         DefaultValue = 1,

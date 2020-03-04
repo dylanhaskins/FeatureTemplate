@@ -157,12 +157,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Deployment\FeatureTemplatePackage.cs" />
+    <Compile Include="Entities\Context\ActivityMimeAttachment.cs" />
+    <Compile Include="Entities\Context\ActivityParty.cs" />
     <Compile Include="Entities\Context\BusinessUnit.cs" />
+    <Compile Include="Entities\Context\dia_applicationtype.cs" />
     <Compile Include="Entities\Context\dia_autonumberconfiguration.cs" />
     <Compile Include="Entities\Context\dia_configuration.cs" />
     <Compile Include="Entities\Context\dia_externalconfiguration.cs" />
+    <Compile Include="Entities\Context\dia_product_applicationtype.cs" />
     <Compile Include="Entities\Context\dia_supportingdocument.cs" />
+    <Compile Include="Entities\Context\Email.cs" />
     <Compile Include="Entities\Context\GlobalOptionSets.cs" />
+    <Compile Include="Entities\Context\Incident.cs" />
+    <Compile Include="Entities\Context\PriceLevel.cs" />
+    <Compile Include="Entities\Context\Product.cs" />
+    <Compile Include="Entities\Context\Queue.cs" />
+    <Compile Include="Entities\Context\QueueMembership.cs" />
+    <Compile Include="Entities\Context\SalesOrder.cs" />
+    <Compile Include="Entities\Context\SalesOrderDetail.cs" />
     <Compile Include="Entities\Context\SystemUser.cs" />
     <Compile Include="Entities\Context\Team.cs" />
     <Compile Include="Entities\Context\TeamMembership.cs" />

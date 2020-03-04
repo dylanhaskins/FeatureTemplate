@@ -896,7 +896,7 @@ namespace CCMS.Entities {
         
         /// <summary>
         /// <para>Employee identifier for the user.</para>
-        /// <para>Display Name: Employee</para>
+        /// <para>Display Name: Staff ID</para>
         /// </summary>
         [AttributeLogicalName("employeeid")]
         public string EmployeeId {
@@ -1484,6 +1484,20 @@ namespace CCMS.Entities {
         }
         
         /// <summary>
+        /// <para>Site at which the user is located.</para>
+        /// <para>Display Name: Site</para>
+        /// </summary>
+        [AttributeLogicalName("siteid")]
+        public EntityReference SiteId {
+            get {
+                return GetAttributeValue<EntityReference>("siteid");
+            }
+            set {
+                SetAttributeValue("siteid", value);
+            }
+        }
+        
+        /// <summary>
         /// <para>Skill set of the user.</para>
         /// <para>Display Name: Skills</para>
         /// </summary>
@@ -1726,6 +1740,65 @@ namespace CCMS.Entities {
             }
         }
         
+        /// <summary>
+        /// <para>Display Name: Bypass AD sync</para>
+        /// </summary>
+        [AttributeLogicalName("dia_bypassadsync")]
+        public bool? dia_bypassadsync {
+            get {
+                return GetAttributeValue<bool?>("dia_bypassadsync");
+            }
+            set {
+                SetAttributeValue("dia_bypassadsync", value);
+            }
+        }
+        
+        /// <summary>
+        /// <para>Display Name: Total services</para>
+        /// </summary>
+        [AttributeLogicalName("dia_totalservices")]
+        public int? dia_totalservices {
+            get {
+                return GetAttributeValue<int?>("dia_totalservices");
+            }
+        }
+        
+        /// <summary>
+        /// <para>Last Updated time of rollup field Total services.</para>
+        /// <para>Display Name: Total services (Last Updated On)</para>
+        /// </summary>
+        [AttributeLogicalName("dia_totalservices_date")]
+        public DateTime? dia_totalservices_Date {
+            get {
+                return GetAttributeValue<DateTime?>("dia_totalservices_date");
+            }
+        }
+        
+        /// <summary>
+        /// <para>State of rollup field Total services.</para>
+        /// <para>Display Name: Total services (State)</para>
+        /// </summary>
+        [AttributeLogicalName("dia_totalservices_state")]
+        public int? dia_totalservices_State {
+            get {
+                return GetAttributeValue<int?>("dia_totalservices_state");
+            }
+        }
+        
+        /// <summary>
+        /// <para>Describes whether user is opted out or not</para>
+        /// <para>Display Name: GDPR Optout</para>
+        /// </summary>
+        [AttributeLogicalName("msdyn_gdproptout")]
+        public bool? msdyn_gdproptout {
+            get {
+                return GetAttributeValue<bool?>("msdyn_gdproptout");
+            }
+            set {
+                SetAttributeValue("msdyn_gdproptout", value);
+            }
+        }
+        
         [RelationshipSchemaName("lk_systemuser_createdonbehalfby", EntityRole.Referenced)]
         public IEnumerable<SystemUser> Referencedlk_systemuser_createdonbehalfby {
             get {
@@ -1831,6 +1904,16 @@ namespace CCMS.Entities {
             }
         }
         
+        [RelationshipSchemaName("SystemUser_Email_EmailSender")]
+        public IEnumerable<Email> SystemUser_Email_EmailSender {
+            get {
+                return GetRelatedEntities<Email>("SystemUser_Email_EmailSender", null);
+            }
+            set {
+                SetRelatedEntities("SystemUser_Email_EmailSender", null, value);
+            }
+        }
+        
         [AttributeLogicalName("businessunitid")]
         [RelationshipSchemaName("business_unit_system_users")]
         public BusinessUnit business_unit_system_users {
@@ -1879,6 +1962,486 @@ namespace CCMS.Entities {
             }
             set {
                 SetRelatedEntities("lk_businessunitbase_modifiedby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_applicationtype_createdby")]
+        public IEnumerable<dia_applicationtype> lk_dia_applicationtype_createdby {
+            get {
+                return GetRelatedEntities<dia_applicationtype>("lk_dia_applicationtype_createdby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_applicationtype_createdby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_applicationtype_createdonbehalfby")]
+        public IEnumerable<dia_applicationtype> lk_dia_applicationtype_createdonbehalfby {
+            get {
+                return GetRelatedEntities<dia_applicationtype>("lk_dia_applicationtype_createdonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_applicationtype_createdonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_applicationtype_modifiedby")]
+        public IEnumerable<dia_applicationtype> lk_dia_applicationtype_modifiedby {
+            get {
+                return GetRelatedEntities<dia_applicationtype>("lk_dia_applicationtype_modifiedby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_applicationtype_modifiedby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_applicationtype_modifiedonbehalfby")]
+        public IEnumerable<dia_applicationtype> lk_dia_applicationtype_modifiedonbehalfby {
+            get {
+                return GetRelatedEntities<dia_applicationtype>("lk_dia_applicationtype_modifiedonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_applicationtype_modifiedonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_autonumberconfiguration_createdby")]
+        public IEnumerable<dia_autonumberconfiguration> lk_dia_autonumberconfiguration_createdby {
+            get {
+                return GetRelatedEntities<dia_autonumberconfiguration>("lk_dia_autonumberconfiguration_createdby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_autonumberconfiguration_createdby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_autonumberconfiguration_createdonbehalfby")]
+        public IEnumerable<dia_autonumberconfiguration> lk_dia_autonumberconfiguration_createdonbehalfby {
+            get {
+                return GetRelatedEntities<dia_autonumberconfiguration>("lk_dia_autonumberconfiguration_createdonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_autonumberconfiguration_createdonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_autonumberconfiguration_modifiedby")]
+        public IEnumerable<dia_autonumberconfiguration> lk_dia_autonumberconfiguration_modifiedby {
+            get {
+                return GetRelatedEntities<dia_autonumberconfiguration>("lk_dia_autonumberconfiguration_modifiedby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_autonumberconfiguration_modifiedby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_autonumberconfiguration_modifiedonbehalfby")]
+        public IEnumerable<dia_autonumberconfiguration> lk_dia_autonumberconfiguration_modifiedonbehalfby {
+            get {
+                return GetRelatedEntities<dia_autonumberconfiguration>("lk_dia_autonumberconfiguration_modifiedonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_autonumberconfiguration_modifiedonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_configuration_createdby")]
+        public IEnumerable<dia_configuration> lk_dia_configuration_createdby {
+            get {
+                return GetRelatedEntities<dia_configuration>("lk_dia_configuration_createdby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_configuration_createdby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_configuration_createdonbehalfby")]
+        public IEnumerable<dia_configuration> lk_dia_configuration_createdonbehalfby {
+            get {
+                return GetRelatedEntities<dia_configuration>("lk_dia_configuration_createdonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_configuration_createdonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_configuration_modifiedby")]
+        public IEnumerable<dia_configuration> lk_dia_configuration_modifiedby {
+            get {
+                return GetRelatedEntities<dia_configuration>("lk_dia_configuration_modifiedby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_configuration_modifiedby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_configuration_modifiedonbehalfby")]
+        public IEnumerable<dia_configuration> lk_dia_configuration_modifiedonbehalfby {
+            get {
+                return GetRelatedEntities<dia_configuration>("lk_dia_configuration_modifiedonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_configuration_modifiedonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_externalconfiguration_createdby")]
+        public IEnumerable<dia_externalconfiguration> lk_dia_externalconfiguration_createdby {
+            get {
+                return GetRelatedEntities<dia_externalconfiguration>("lk_dia_externalconfiguration_createdby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_externalconfiguration_createdby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_externalconfiguration_createdonbehalfby")]
+        public IEnumerable<dia_externalconfiguration> lk_dia_externalconfiguration_createdonbehalfby {
+            get {
+                return GetRelatedEntities<dia_externalconfiguration>("lk_dia_externalconfiguration_createdonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_externalconfiguration_createdonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_externalconfiguration_modifiedby")]
+        public IEnumerable<dia_externalconfiguration> lk_dia_externalconfiguration_modifiedby {
+            get {
+                return GetRelatedEntities<dia_externalconfiguration>("lk_dia_externalconfiguration_modifiedby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_externalconfiguration_modifiedby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_externalconfiguration_modifiedonbehalfby")]
+        public IEnumerable<dia_externalconfiguration> lk_dia_externalconfiguration_modifiedonbehalfby {
+            get {
+                return GetRelatedEntities<dia_externalconfiguration>("lk_dia_externalconfiguration_modifiedonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_externalconfiguration_modifiedonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_supportingdocument_createdby")]
+        public IEnumerable<dia_supportingdocument> lk_dia_supportingdocument_createdby {
+            get {
+                return GetRelatedEntities<dia_supportingdocument>("lk_dia_supportingdocument_createdby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_supportingdocument_createdby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_supportingdocument_createdonbehalfby")]
+        public IEnumerable<dia_supportingdocument> lk_dia_supportingdocument_createdonbehalfby {
+            get {
+                return GetRelatedEntities<dia_supportingdocument>("lk_dia_supportingdocument_createdonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_supportingdocument_createdonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_supportingdocument_modifiedby")]
+        public IEnumerable<dia_supportingdocument> lk_dia_supportingdocument_modifiedby {
+            get {
+                return GetRelatedEntities<dia_supportingdocument>("lk_dia_supportingdocument_modifiedby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_supportingdocument_modifiedby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_dia_supportingdocument_modifiedonbehalfby")]
+        public IEnumerable<dia_supportingdocument> lk_dia_supportingdocument_modifiedonbehalfby {
+            get {
+                return GetRelatedEntities<dia_supportingdocument>("lk_dia_supportingdocument_modifiedonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_dia_supportingdocument_modifiedonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_email_createdby")]
+        public IEnumerable<Email> lk_email_createdby {
+            get {
+                return GetRelatedEntities<Email>("lk_email_createdby", null);
+            }
+            set {
+                SetRelatedEntities("lk_email_createdby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_email_createdonbehalfby")]
+        public IEnumerable<Email> lk_email_createdonbehalfby {
+            get {
+                return GetRelatedEntities<Email>("lk_email_createdonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_email_createdonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_email_modifiedby")]
+        public IEnumerable<Email> lk_email_modifiedby {
+            get {
+                return GetRelatedEntities<Email>("lk_email_modifiedby", null);
+            }
+            set {
+                SetRelatedEntities("lk_email_modifiedby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_email_modifiedonbehalfby")]
+        public IEnumerable<Email> lk_email_modifiedonbehalfby {
+            get {
+                return GetRelatedEntities<Email>("lk_email_modifiedonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_email_modifiedonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_incidentbase_createdby")]
+        public IEnumerable<Incident> lk_incidentbase_createdby {
+            get {
+                return GetRelatedEntities<Incident>("lk_incidentbase_createdby", null);
+            }
+            set {
+                SetRelatedEntities("lk_incidentbase_createdby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_incidentbase_createdonbehalfby")]
+        public IEnumerable<Incident> lk_incidentbase_createdonbehalfby {
+            get {
+                return GetRelatedEntities<Incident>("lk_incidentbase_createdonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_incidentbase_createdonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_incidentbase_modifiedby")]
+        public IEnumerable<Incident> lk_incidentbase_modifiedby {
+            get {
+                return GetRelatedEntities<Incident>("lk_incidentbase_modifiedby", null);
+            }
+            set {
+                SetRelatedEntities("lk_incidentbase_modifiedby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_incidentbase_modifiedonbehalfby")]
+        public IEnumerable<Incident> lk_incidentbase_modifiedonbehalfby {
+            get {
+                return GetRelatedEntities<Incident>("lk_incidentbase_modifiedonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_incidentbase_modifiedonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_pricelevel_createdonbehalfby")]
+        public IEnumerable<PriceLevel> lk_pricelevel_createdonbehalfby {
+            get {
+                return GetRelatedEntities<PriceLevel>("lk_pricelevel_createdonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_pricelevel_createdonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_pricelevel_modifiedonbehalfby")]
+        public IEnumerable<PriceLevel> lk_pricelevel_modifiedonbehalfby {
+            get {
+                return GetRelatedEntities<PriceLevel>("lk_pricelevel_modifiedonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_pricelevel_modifiedonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_pricelevelbase_createdby")]
+        public IEnumerable<PriceLevel> lk_pricelevelbase_createdby {
+            get {
+                return GetRelatedEntities<PriceLevel>("lk_pricelevelbase_createdby", null);
+            }
+            set {
+                SetRelatedEntities("lk_pricelevelbase_createdby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_pricelevelbase_modifiedby")]
+        public IEnumerable<PriceLevel> lk_pricelevelbase_modifiedby {
+            get {
+                return GetRelatedEntities<PriceLevel>("lk_pricelevelbase_modifiedby", null);
+            }
+            set {
+                SetRelatedEntities("lk_pricelevelbase_modifiedby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_product_createdonbehalfby")]
+        public IEnumerable<Product> lk_product_createdonbehalfby {
+            get {
+                return GetRelatedEntities<Product>("lk_product_createdonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_product_createdonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_product_modifiedonbehalfby")]
+        public IEnumerable<Product> lk_product_modifiedonbehalfby {
+            get {
+                return GetRelatedEntities<Product>("lk_product_modifiedonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_product_modifiedonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_productbase_createdby")]
+        public IEnumerable<Product> lk_productbase_createdby {
+            get {
+                return GetRelatedEntities<Product>("lk_productbase_createdby", null);
+            }
+            set {
+                SetRelatedEntities("lk_productbase_createdby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_productbase_modifiedby")]
+        public IEnumerable<Product> lk_productbase_modifiedby {
+            get {
+                return GetRelatedEntities<Product>("lk_productbase_modifiedby", null);
+            }
+            set {
+                SetRelatedEntities("lk_productbase_modifiedby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_queue_createdonbehalfby")]
+        public IEnumerable<Queue> lk_queue_createdonbehalfby {
+            get {
+                return GetRelatedEntities<Queue>("lk_queue_createdonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_queue_createdonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_queue_modifiedonbehalfby")]
+        public IEnumerable<Queue> lk_queue_modifiedonbehalfby {
+            get {
+                return GetRelatedEntities<Queue>("lk_queue_modifiedonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_queue_modifiedonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_queuebase_createdby")]
+        public IEnumerable<Queue> lk_queuebase_createdby {
+            get {
+                return GetRelatedEntities<Queue>("lk_queuebase_createdby", null);
+            }
+            set {
+                SetRelatedEntities("lk_queuebase_createdby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_queuebase_modifiedby")]
+        public IEnumerable<Queue> lk_queuebase_modifiedby {
+            get {
+                return GetRelatedEntities<Queue>("lk_queuebase_modifiedby", null);
+            }
+            set {
+                SetRelatedEntities("lk_queuebase_modifiedby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_salesorder_createdonbehalfby")]
+        public IEnumerable<SalesOrder> lk_salesorder_createdonbehalfby {
+            get {
+                return GetRelatedEntities<SalesOrder>("lk_salesorder_createdonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_salesorder_createdonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_salesorder_modifiedonbehalfby")]
+        public IEnumerable<SalesOrder> lk_salesorder_modifiedonbehalfby {
+            get {
+                return GetRelatedEntities<SalesOrder>("lk_salesorder_modifiedonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_salesorder_modifiedonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_salesorderbase_createdby")]
+        public IEnumerable<SalesOrder> lk_salesorderbase_createdby {
+            get {
+                return GetRelatedEntities<SalesOrder>("lk_salesorderbase_createdby", null);
+            }
+            set {
+                SetRelatedEntities("lk_salesorderbase_createdby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_salesorderbase_modifiedby")]
+        public IEnumerable<SalesOrder> lk_salesorderbase_modifiedby {
+            get {
+                return GetRelatedEntities<SalesOrder>("lk_salesorderbase_modifiedby", null);
+            }
+            set {
+                SetRelatedEntities("lk_salesorderbase_modifiedby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_salesorderdetail_createdonbehalfby")]
+        public IEnumerable<SalesOrderDetail> lk_salesorderdetail_createdonbehalfby {
+            get {
+                return GetRelatedEntities<SalesOrderDetail>("lk_salesorderdetail_createdonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_salesorderdetail_createdonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_salesorderdetail_modifiedonbehalfby")]
+        public IEnumerable<SalesOrderDetail> lk_salesorderdetail_modifiedonbehalfby {
+            get {
+                return GetRelatedEntities<SalesOrderDetail>("lk_salesorderdetail_modifiedonbehalfby", null);
+            }
+            set {
+                SetRelatedEntities("lk_salesorderdetail_modifiedonbehalfby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_salesorderdetailbase_createdby")]
+        public IEnumerable<SalesOrderDetail> lk_salesorderdetailbase_createdby {
+            get {
+                return GetRelatedEntities<SalesOrderDetail>("lk_salesorderdetailbase_createdby", null);
+            }
+            set {
+                SetRelatedEntities("lk_salesorderdetailbase_createdby", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("lk_salesorderdetailbase_modifiedby")]
+        public IEnumerable<SalesOrderDetail> lk_salesorderdetailbase_modifiedby {
+            get {
+                return GetRelatedEntities<SalesOrderDetail>("lk_salesorderdetailbase_modifiedby", null);
+            }
+            set {
+                SetRelatedEntities("lk_salesorderdetailbase_modifiedby", null, value);
             }
         }
         
@@ -1932,6 +2495,77 @@ namespace CCMS.Entities {
             }
         }
         
+        [RelationshipSchemaName("queue_primary_user")]
+        public IEnumerable<Queue> queue_primary_user {
+            get {
+                return GetRelatedEntities<Queue>("queue_primary_user", null);
+            }
+            set {
+                SetRelatedEntities("queue_primary_user", null, value);
+            }
+        }
+        
+        [AttributeLogicalName("queueid")]
+        [RelationshipSchemaName("queue_system_user")]
+        public Queue queue_system_user {
+            get {
+                return GetRelatedEntity<Queue>("queue_system_user", null);
+            }
+            set {
+                SetRelatedEntity("queue_system_user", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("queuemembership_association")]
+        public IEnumerable<Queue> queuemembership_association {
+            get {
+                return GetRelatedEntities<Queue>("queuemembership_association", null);
+            }
+            set {
+                SetRelatedEntities("queuemembership_association", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("system_user_activity_parties")]
+        public IEnumerable<ActivityParty> system_user_activity_parties {
+            get {
+                return GetRelatedEntities<ActivityParty>("system_user_activity_parties", null);
+            }
+            set {
+                SetRelatedEntities("system_user_activity_parties", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("system_user_incidents")]
+        public IEnumerable<Incident> system_user_incidents {
+            get {
+                return GetRelatedEntities<Incident>("system_user_incidents", null);
+            }
+            set {
+                SetRelatedEntities("system_user_incidents", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("system_user_orders")]
+        public IEnumerable<SalesOrder> system_user_orders {
+            get {
+                return GetRelatedEntities<SalesOrder>("system_user_orders", null);
+            }
+            set {
+                SetRelatedEntities("system_user_orders", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("system_user_salesorderdetail")]
+        public IEnumerable<SalesOrderDetail> system_user_salesorderdetail {
+            get {
+                return GetRelatedEntities<SalesOrderDetail>("system_user_salesorderdetail", null);
+            }
+            set {
+                SetRelatedEntities("system_user_salesorderdetail", null, value);
+            }
+        }
+        
         [RelationshipSchemaName("teammembership_association")]
         public IEnumerable<Team> teammembership_association {
             get {
@@ -1942,38 +2576,76 @@ namespace CCMS.Entities {
             }
         }
         
+        [RelationshipSchemaName("user_dia_applicationtype")]
+        public IEnumerable<dia_applicationtype> user_dia_applicationtype {
+            get {
+                return GetRelatedEntities<dia_applicationtype>("user_dia_applicationtype", null);
+            }
+            set {
+                SetRelatedEntities("user_dia_applicationtype", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("user_dia_autonumberconfiguration")]
+        public IEnumerable<dia_autonumberconfiguration> user_dia_autonumberconfiguration {
+            get {
+                return GetRelatedEntities<dia_autonumberconfiguration>("user_dia_autonumberconfiguration", null);
+            }
+            set {
+                SetRelatedEntities("user_dia_autonumberconfiguration", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("user_dia_externalconfiguration")]
+        public IEnumerable<dia_externalconfiguration> user_dia_externalconfiguration {
+            get {
+                return GetRelatedEntities<dia_externalconfiguration>("user_dia_externalconfiguration", null);
+            }
+            set {
+                SetRelatedEntities("user_dia_externalconfiguration", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("user_dia_supportingdocument")]
+        public IEnumerable<dia_supportingdocument> user_dia_supportingdocument {
+            get {
+                return GetRelatedEntities<dia_supportingdocument>("user_dia_supportingdocument", null);
+            }
+            set {
+                SetRelatedEntities("user_dia_supportingdocument", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("user_email")]
+        public IEnumerable<Email> user_email {
+            get {
+                return GetRelatedEntities<Email>("user_email", null);
+            }
+            set {
+                SetRelatedEntities("user_email", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("user_salesorderdetail")]
+        public IEnumerable<SalesOrderDetail> user_salesorderdetail {
+            get {
+                return GetRelatedEntities<SalesOrderDetail>("user_salesorderdetail", null);
+            }
+            set {
+                SetRelatedEntities("user_salesorderdetail", null, value);
+            }
+        }
+        
         public static SystemUser Retrieve(IOrganizationService service, Guid id, params Expression<Func<SystemUser,object>>[] attrs) {
             return service.Retrieve(id, attrs);
         }
     }
     
     [DataContract()]
-    public enum SystemUser_Address2_ShippingMethodCode {
+    public enum SystemUser_Address1_AddressTypeCode {
         
         [EnumMember()]
         DefaultValue = 1,
-    }
-    
-    [DataContract()]
-    public enum SystemUser_AccessMode {
-        
-        [EnumMember()]
-        ReadWrite = 0,
-        
-        [EnumMember()]
-        Administrative = 1,
-        
-        [EnumMember()]
-        Read = 2,
-        
-        [EnumMember()]
-        SupportUser = 3,
-        
-        [EnumMember()]
-        Noninteractive = 4,
-        
-        [EnumMember()]
-        DelegatedAdmin = 5,
     }
     
     [DataContract()]
@@ -1984,20 +2656,71 @@ namespace CCMS.Entities {
     }
     
     [DataContract()]
-    public enum SystemUser_PreferredAddressCode {
-        
-        [EnumMember()]
-        MailingAddress = 1,
-        
-        [EnumMember()]
-        OtherAddress = 2,
-    }
-    
-    [DataContract()]
     public enum SystemUser_PreferredEmailCode {
         
         [EnumMember()]
         DefaultValue = 1,
+    }
+    
+    [DataContract()]
+    public enum SystemUser_OutgoingEmailDeliveryMethod {
+        
+        [EnumMember()]
+        None = 0,
+        
+        [EnumMember()]
+        MicrosoftDynamics365forOutlook = 1,
+        
+        [EnumMember()]
+        ServerSideSynchronizationorEmailRouter = 2,
+    }
+    
+    [DataContract()]
+    public enum SystemUser_PreferredPhoneCode {
+        
+        [EnumMember()]
+        MainPhone = 1,
+        
+        [EnumMember()]
+        OtherPhone = 2,
+        
+        [EnumMember()]
+        HomePhone = 3,
+        
+        [EnumMember()]
+        MobilePhone = 4,
+    }
+    
+    [DataContract()]
+    public enum SystemUser_EmailRouterAccessApproval {
+        
+        [EnumMember()]
+        Empty = 0,
+        
+        [EnumMember()]
+        Approved = 1,
+        
+        [EnumMember()]
+        PendingApproval = 2,
+        
+        [EnumMember()]
+        Rejected = 3,
+    }
+    
+    [DataContract()]
+    public enum SystemUser_IncomingEmailDeliveryMethod {
+        
+        [EnumMember()]
+        None = 0,
+        
+        [EnumMember()]
+        MicrosoftDynamics365forOutlook = 1,
+        
+        [EnumMember()]
+        ServerSideSynchronizationorEmailRouter = 2,
+        
+        [EnumMember()]
+        ForwardMailbox = 3,
     }
     
     [DataContract()]
@@ -2044,55 +2767,32 @@ namespace CCMS.Entities {
     }
     
     [DataContract()]
-    public enum SystemUser_Address1_AddressTypeCode {
+    public enum SystemUser_AccessMode {
+        
+        [EnumMember()]
+        ReadWrite = 0,
+        
+        [EnumMember()]
+        Administrative = 1,
+        
+        [EnumMember()]
+        Read = 2,
+        
+        [EnumMember()]
+        SupportUser = 3,
+        
+        [EnumMember()]
+        Noninteractive = 4,
+        
+        [EnumMember()]
+        DelegatedAdmin = 5,
+    }
+    
+    [DataContract()]
+    public enum SystemUser_Address2_AddressTypeCode {
         
         [EnumMember()]
         DefaultValue = 1,
-    }
-    
-    [DataContract()]
-    public enum SystemUser_IncomingEmailDeliveryMethod {
-        
-        [EnumMember()]
-        None = 0,
-        
-        [EnumMember()]
-        MicrosoftDynamics365forOutlook = 1,
-        
-        [EnumMember()]
-        ServerSideSynchronizationorEmailRouter = 2,
-        
-        [EnumMember()]
-        ForwardMailbox = 3,
-    }
-    
-    [DataContract()]
-    public enum SystemUser_PreferredPhoneCode {
-        
-        [EnumMember()]
-        MainPhone = 1,
-        
-        [EnumMember()]
-        OtherPhone = 2,
-        
-        [EnumMember()]
-        HomePhone = 3,
-        
-        [EnumMember()]
-        MobilePhone = 4,
-    }
-    
-    [DataContract()]
-    public enum SystemUser_OutgoingEmailDeliveryMethod {
-        
-        [EnumMember()]
-        None = 0,
-        
-        [EnumMember()]
-        MicrosoftDynamics365forOutlook = 1,
-        
-        [EnumMember()]
-        ServerSideSynchronizationorEmailRouter = 2,
     }
     
     [DataContract()]
@@ -2121,25 +2821,19 @@ namespace CCMS.Entities {
     }
     
     [DataContract()]
-    public enum SystemUser_EmailRouterAccessApproval {
-        
-        [EnumMember()]
-        Empty = 0,
-        
-        [EnumMember()]
-        Approved = 1,
-        
-        [EnumMember()]
-        PendingApproval = 2,
-        
-        [EnumMember()]
-        Rejected = 3,
-    }
-    
-    [DataContract()]
-    public enum SystemUser_Address2_AddressTypeCode {
+    public enum SystemUser_Address2_ShippingMethodCode {
         
         [EnumMember()]
         DefaultValue = 1,
+    }
+    
+    [DataContract()]
+    public enum SystemUser_PreferredAddressCode {
+        
+        [EnumMember()]
+        MailingAddress = 1,
+        
+        [EnumMember()]
+        OtherAddress = 2,
     }
 }

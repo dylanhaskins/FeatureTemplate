@@ -432,6 +432,38 @@ namespace CCMS.Entities {
             }
         }
         
+        /// <summary>
+        /// <para>Display Name: Stock Allocated</para>
+        /// </summary>
+        [AttributeLogicalName("dia_stockallocated")]
+        public int? dia_StockAllocated {
+            get {
+                return GetAttributeValue<int?>("dia_stockallocated");
+            }
+        }
+        
+        /// <summary>
+        /// <para>Last Updated time of rollup field Stock Allocated.</para>
+        /// <para>Display Name: Stock Allocated (Last Updated On)</para>
+        /// </summary>
+        [AttributeLogicalName("dia_stockallocated_date")]
+        public DateTime? dia_StockAllocated_Date {
+            get {
+                return GetAttributeValue<DateTime?>("dia_stockallocated_date");
+            }
+        }
+        
+        /// <summary>
+        /// <para>State of rollup field Stock Allocated.</para>
+        /// <para>Display Name: Stock Allocated (State)</para>
+        /// </summary>
+        [AttributeLogicalName("dia_stockallocated_state")]
+        public int? dia_StockAllocated_State {
+            get {
+                return GetAttributeValue<int?>("dia_stockallocated_state");
+            }
+        }
+        
         [AttributeLogicalName("businessunitid")]
         [RelationshipSchemaName("business_unit_teams")]
         public BusinessUnit business_unit_teams {
@@ -495,6 +527,97 @@ namespace CCMS.Entities {
             }
             set {
                 SetRelatedEntity("lk_teambase_modifiedby", null, value);
+            }
+        }
+        
+        [AttributeLogicalName("queueid")]
+        [RelationshipSchemaName("queue_team")]
+        public Queue queue_team {
+            get {
+                return GetRelatedEntity<Queue>("queue_team", null);
+            }
+            set {
+                SetRelatedEntity("queue_team", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("team_dia_applicationtype")]
+        public IEnumerable<dia_applicationtype> team_dia_applicationtype {
+            get {
+                return GetRelatedEntities<dia_applicationtype>("team_dia_applicationtype", null);
+            }
+            set {
+                SetRelatedEntities("team_dia_applicationtype", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("team_dia_autonumberconfiguration")]
+        public IEnumerable<dia_autonumberconfiguration> team_dia_autonumberconfiguration {
+            get {
+                return GetRelatedEntities<dia_autonumberconfiguration>("team_dia_autonumberconfiguration", null);
+            }
+            set {
+                SetRelatedEntities("team_dia_autonumberconfiguration", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("team_dia_externalconfiguration")]
+        public IEnumerable<dia_externalconfiguration> team_dia_externalconfiguration {
+            get {
+                return GetRelatedEntities<dia_externalconfiguration>("team_dia_externalconfiguration", null);
+            }
+            set {
+                SetRelatedEntities("team_dia_externalconfiguration", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("team_dia_supportingdocument")]
+        public IEnumerable<dia_supportingdocument> team_dia_supportingdocument {
+            get {
+                return GetRelatedEntities<dia_supportingdocument>("team_dia_supportingdocument", null);
+            }
+            set {
+                SetRelatedEntities("team_dia_supportingdocument", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("team_email")]
+        public IEnumerable<Email> team_email {
+            get {
+                return GetRelatedEntities<Email>("team_email", null);
+            }
+            set {
+                SetRelatedEntities("team_email", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("team_incidents")]
+        public IEnumerable<Incident> team_incidents {
+            get {
+                return GetRelatedEntities<Incident>("team_incidents", null);
+            }
+            set {
+                SetRelatedEntities("team_incidents", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("team_orders")]
+        public IEnumerable<SalesOrder> team_orders {
+            get {
+                return GetRelatedEntities<SalesOrder>("team_orders", null);
+            }
+            set {
+                SetRelatedEntities("team_orders", null, value);
+            }
+        }
+        
+        [RelationshipSchemaName("team_salesorderdetail")]
+        public IEnumerable<SalesOrderDetail> team_salesorderdetail {
+            get {
+                return GetRelatedEntities<SalesOrderDetail>("team_salesorderdetail", null);
+            }
+            set {
+                SetRelatedEntities("team_salesorderdetail", null, value);
             }
         }
         
