@@ -116,6 +116,9 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Caching">
+      <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.1\System.Runtime.Caching.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -155,6 +158,10 @@
   <ItemGroup>
     <Compile Include="Deployment\FeatureTemplatePackage.cs" />
     <Compile Include="Entities\Context\BusinessUnit.cs" />
+    <Compile Include="Entities\Context\dia_autonumberconfiguration.cs" />
+    <Compile Include="Entities\Context\dia_configuration.cs" />
+    <Compile Include="Entities\Context\dia_externalconfiguration.cs" />
+    <Compile Include="Entities\Context\dia_supportingdocument.cs" />
     <Compile Include="Entities\Context\GlobalOptionSets.cs" />
     <Compile Include="Entities\Context\SystemUser.cs" />
     <Compile Include="Entities\Context\Team.cs" />
