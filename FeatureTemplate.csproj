@@ -274,7 +274,7 @@
     <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.exe" />
     <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.xml" />
   </ItemGroup>
-  <Import Project="..\Common\Common.projitems" Label="Shared" />
+  <Import Project="..\Common\Common\Common.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>if $(ConfigurationName) == SolutionPackager (powershell.exe -ExecutionPolicy Bypass -File .\Scripts\SolutionExport.ps1)
