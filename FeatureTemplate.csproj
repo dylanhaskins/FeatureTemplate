@@ -163,6 +163,9 @@
     <Compile Include="Entities\Context\XrmExtensions.cs" />
     <Compile Include="Plugins\Users\SamplePlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\Common\CommonFunctions.cs" />
+    <Compile Include="Services\Common\ConfigService.cs" />
     <Compile Include="Tests\UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -272,15 +275,14 @@
     <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.xml" />
   </ItemGroup>
   <Import Project="..\Common\Common.projitems" Label="Shared" />
-  <Import Project="..\Services\Services.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>npm run dist</PreBuildEvent>
+    <PreBuildEvent>if $(ConfigurationName) == SolutionPackager (powershell.exe -ExecutionPolicy Bypass -File .\Scripts\SolutionExport.ps1)
+
+npm run dist</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == SolutionPackager (powershell.exe -ExecutionPolicy Bypass -File .\Scripts\SolutionExport.ps1)
-
-roslyn\csc.exe /target:library ..\..\Deployment\FeatureTemplatePackage.cs /r:Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase.dll /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.ComponentModel.Composition.dll"
+    <PostBuildEvent>roslyn\csc.exe /target:library ..\..\Deployment\FeatureTemplatePackage.cs /r:Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase.dll /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.ComponentModel.Composition.dll"
 copy FeatureTemplatePackage.dll ..\..\..\PackageDeployer\bin\$(ConfigurationName)\.
 xcopy Deployment\. ..\..\..\PackageDeployer\bin\$(ConfigurationName)\. /s/e/y</PostBuildEvent>
   </PropertyGroup>
