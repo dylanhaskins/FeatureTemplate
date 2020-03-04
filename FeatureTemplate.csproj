@@ -277,7 +277,7 @@
   <Import Project="..\Common\Common\Common.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>if $(ConfigurationName) == SolutionPackager (powershell.exe -ExecutionPolicy Bypass -File .\Scripts\SolutionExport.ps1)
+    <PreBuildEvent>if $(ConfigurationName) == SolutionPackager (powershell.exe -ExecutionPolicy Bypass -File ..\..\Scripts\SolutionExport.ps1)
 
 npm run dist</PreBuildEvent>
   </PropertyGroup>
