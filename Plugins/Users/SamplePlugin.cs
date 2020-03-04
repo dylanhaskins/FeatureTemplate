@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xrm.Sdk;
 using System;
 using Common;
-using Entities;
+using CCMS.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

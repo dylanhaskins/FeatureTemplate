@@ -22,9 +22,9 @@ using System.Runtime.Serialization;
 namespace Entities {
     
     
-    public partial class XrmContext : ExtendedOrganizationServiceContext {
+    public partial class CCMSContext : ExtendedOrganizationServiceContext {
         
-        public XrmContext(IOrganizationService service) : 
+        public CCMSContext(IOrganizationService service) : 
                 base(service) {
         }
         

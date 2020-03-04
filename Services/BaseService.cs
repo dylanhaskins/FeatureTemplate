@@ -1,4 +1,4 @@
-﻿using Entities;
+﻿using CCMS.Entities;
 using Microsoft.Crm.Sdk.Messages;
 using Microsoft.Xrm.Sdk;
 using System;
@@ -12,19 +12,19 @@ namespace Services
         protected IOrganizationService OrgService { get; set; }
         protected IOrganizationService ElevatedService { get; set; }
         protected ITracingService TracingService { get; set; }
-        protected XrmContext OrgServiceContext { get; set; }
-        protected XrmContext ElevatedServiceContext { get; set; }
+        protected CCMSContext OrgServiceContext { get; set; }
+        protected CCMSContext ElevatedServiceContext { get; set; }
         public BaseService(IOrganizationService orgService, ITracingService tracingservice)
         {
             OrgService = orgService;
             TracingService = tracingservice;
             //Create OrganizationService Context
-            OrgServiceContext = new XrmContext(OrgService);
+            OrgServiceContext = new CCMSContext(OrgService);
         }
         public BaseService(IOrganizationService orgService, IOrganizationService elevatedService, ITracingService tracingservice) : this(orgService, tracingservice)
         {
             ElevatedService = elevatedService;
-            ElevatedServiceContext = new XrmContext(ElevatedService);
+            ElevatedServiceContext = new CCMSContext(ElevatedService);
         }
         protected void Trace(string trace)
         {
