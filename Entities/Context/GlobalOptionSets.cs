@@ -14,6 +14,6 @@ using System.Runtime.Serialization;
 [assembly: ProxyTypesAssembly()]
 
 
-namespace Entities {
+namespace CCMS.Entities {
     
 }

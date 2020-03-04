@@ -19,7 +19,7 @@ using System.Linq.Expressions;
 using System.Runtime.Serialization;
 
 
-namespace Entities {
+namespace CCMS.Entities {
     
     
     public partial class CCMSContext : ExtendedOrganizationServiceContext {
