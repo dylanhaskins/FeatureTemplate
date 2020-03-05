@@ -37,16 +37,16 @@ if (!$conn) {
 Write-Output($conn)
 
 ######################## Generate Config Migration data 
-& . ((Split-Path $MyInvocation.InvocationName) + ".\_ConfigMigration.ps1")
+& ((Split-Path $MyInvocation.InvocationName) + ".\_ConfigMigration.ps1")
 
 ######################## Generate Types
-& . ((Split-Path $MyInvocation.InvocationName) + ".\_GenerateTypes.ps1")
+& ((Split-Path $MyInvocation.InvocationName) + ".\_GenerateTypes.ps1")
 
 ######################## UPDATE VERSION
-& . ((Split-Path $MyInvocation.InvocationName) + ".\_UpdateVersion.ps1")
+& ((Split-Path $MyInvocation.InvocationName) + ".\_UpdateVersion.ps1")
 
 ######################## EXPORT Solution
-& . ((Split-Path $MyInvocation.InvocationName) + ".\_ExportSolution.ps1")
+& ((Split-Path $MyInvocation.InvocationName) + ".\_ExportSolution.ps1")
 
 
 ######################### CLEANING UP
