@@ -24,10 +24,10 @@ Write-Host("Cleaning up Context Files...")
 Remove-Item ((Split-Path $MyInvocation.InvocationName) + "..\Entities\Context") -Force -Recurse -ErrorAction Ignore
 Remove-Item ((Split-Path $MyInvocation.InvocationName) + "..\WebResources\typings\XRM") -Force -Recurse -ErrorAction Ignore
 
-New-Item -ItemType Directory -Path ..\..\Entities\Context
-New-Item -ItemType Directory -Path ..\..\WebResources\typings\XRM
+New-Item -ItemType Directory -Path ((Split-Path $MyInvocation.InvocationName) + "..\Entities\Context")
+New-Item -ItemType Directory -Path ((Split-Path $MyInvocation.InvocationName) + "..\WebResources\typings\XRM")
 
 	#generate types
-& ((Split-Path $MyInvocation.InvocationName) + "..\XrmContext\XrmContext.exe") /url:$global:ServerUrl/XRMServices/2011/Organization.svc /username:$username /password:$password /useconfig /out:"../../Entities/Context"
-& ((Split-Path $MyInvocation.InvocationName) + "..\XrmDefinitelyTyped\XrmDefinitelyTyped.exe") /url:$global:ServerUrl/XRMServices/2011/Organization.svc /username:$username /password:$password /useconfig /out:"../../Webresources/typings/XRM" /jsLib:"../../Webresources/src/library"
+& ((Split-Path $MyInvocation.InvocationName) + "..\XrmContext\XrmContext.exe") /url:$global:ServerUrl/XRMServices/2011/Organization.svc /username:$username /password:$password /useconfig /out:((Split-Path $MyInvocation.InvocationName) + "..\Entities\Context")
+& ((Split-Path $MyInvocation.InvocationName) + "..\XrmDefinitelyTyped\XrmDefinitelyTyped.exe") /url:$global:ServerUrl/XRMServices/2011/Organization.svc /username:$username /password:$password /useconfig /out:((Split-Path $MyInvocation.InvocationName) + "..\WebResources\typings\XRM") /jsLib:((Split-Path $MyInvocation.InvocationName) + "..\WebResources\src\library")
 }
