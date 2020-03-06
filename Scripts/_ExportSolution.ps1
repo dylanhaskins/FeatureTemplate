@@ -22,7 +22,7 @@ Export-CrmSolution -SolutionName $global:SolutionName -Managed -SolutionZipFileN
 
 ######################## EXTRACT SOLUTION
 $ErrorActionPreference = "SilentlyContinue"
-Remove-Item (Join-Path $PSScriptRoot "..\package*") -Force -Recurse
+Remove-Item (Join-Path $PSScriptRoot "..\package*") -Force -Recurse -Exclude "packages.config", "package.json"
 
 $message = "Unpacking Solution $global:SolutionName"
 Write-Host $message
