@@ -29,6 +29,6 @@ $packages = Get-CrmDataPackage -Conn $conn -Fetches @("<fetch>
 #|Add-FetchesToCrmDataPackage -Conn $conn -Fetches @("")
 
 
-$packages.Data.InnerXml | Out-File -FilePath  ((Split-Path $MyInvocation.InvocationName) + "..\ReferenceData\data.xml")
-$packages.Schema.InnerXml | Out-File -FilePath ((Split-Path $MyInvocation.InvocationName) + "..\ReferenceData\data_schema.xml")
+$packages.Data.InnerXml | Out-File -FilePath  (Join-Path $PSScriptRoot "..\ReferenceData\data.xml")
+$packages.Schema.InnerXml | Out-File -FilePath (Join-Path $PSScriptRoot "..\ReferenceData\data_schema.xml")
 }
