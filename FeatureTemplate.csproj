@@ -156,6 +156,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Deployment\FeatureTemplatePackage.cs" />
     <Compile Include="Deployment\FeatureTemplatePackage.cs" />
     <Compile Include="Entities\Context\ActivityMimeAttachment.cs" />
     <Compile Include="Entities\Context\ActivityParty.cs" />
@@ -184,13 +185,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\Common\CommonFunctions.cs" />
-    <Compile Include="Tests\UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="WebResources\src\ts\forms\systemuser.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Compile.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="package.json" />
     <None Include="packages.config" />
     <None Include="FeatureTemplate.snk" />
@@ -300,9 +303,11 @@
 npm run dist</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>roslyn\csc.exe /target:library ..\..\Deployment\FeatureTemplatePackage.cs /r:Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase.dll /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.ComponentModel.Composition.dll"
-copy FeatureTemplatePackage.dll ..\..\..\PackageDeployer\bin\$(ConfigurationName)\.
-xcopy Deployment\. ..\..\..\PackageDeployer\bin\$(ConfigurationName)\. /s/e/y</PostBuildEvent>
+    <PostBuildEvent>cmd.exe /C compile.bat $(ConfigurationName)
+
+
+
+</PostBuildEvent>
   </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
