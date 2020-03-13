@@ -8,9 +8,9 @@ For /R %package_root% %%G IN (Microsoft.Xrm.Tooling.PackageDeployment.CrmPackage
 
 :continue
 @echo Using '%xrm_path%' 
-roslyn\csc.exe /target:library ..\..\Deployment\CcmsnzdatasourceandproviderPackage.cs /r:"%xrm_path%" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.ComponentModel.Composition.dll"
+roslyn\csc.exe /target:library ..\..\Deployment\FeatureTemplatePackage.cs /r:"%xrm_path%" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.ComponentModel.Composition.dll"
 
-copy CcmsnzdatasourceandproviderPackage.dll ..\..\..\PackageDeployer\bin\%1\.
+copy FeatureTemplatePackage.dll ..\..\..\PackageDeployer\bin\%1\.
 xcopy Deployment\. ..\..\..\PackageDeployer\bin\%1\. /s/e/y
 
 if errorlevel 1 (
