@@ -36,7 +36,7 @@ Set-Location -Path (Join-Path $PSScriptRoot "..\XrmDefinitelyTyped")
 . .\XrmDefinitelyTyped.exe /url:$global:ServerUrl/XRMServices/2011/Organization.svc /username:$username /password:$password /useconfig /out:"../Webresources/typings/XRM" /jsLib:"../Webresources/src/library"
 Set-Location -Path $CurrentLocation
 ##Add Files to Project
-[xml]$xdoc = (Get-Content (Join-Path $PSScriptRoot "..\AddName.csproj"))
+[xml]$xdoc = (Get-Content (Join-Path $PSScriptRoot "..\ProjName.csproj"))
 
 [System.Xml.XmlNamespaceManager] $nsmgr = $xdoc.NameTable
 $nsmgr.AddNamespace('a','http://schemas.microsoft.com/developer/msbuild/2003')
@@ -68,5 +68,5 @@ Get-ChildItem (Join-Path $PSScriptRoot "..\WebResources\typings\XRM") -Name -Rec
 	$addNode.Include = "WebResources\typings\XRM\$_"; $newnodes[0].ParentNode.AppendChild($addNode)
 }
 
-$xdoc.Save((Join-Path $PSScriptRoot "..\AddName.csproj"))
+$xdoc.Save((Join-Path $PSScriptRoot "..\ProjName.csproj"))
 }
