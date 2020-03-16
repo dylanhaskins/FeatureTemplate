@@ -157,7 +157,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Deployment\FeatureTemplatePackage.cs" />
-    <Compile Include="Deployment\FeatureTemplatePackage.cs" />
     <Compile Include="Entities\Context\ActivityMimeAttachment.cs" />
     <Compile Include="Entities\Context\ActivityParty.cs" />
     <Compile Include="Entities\Context\BusinessUnit.cs" />
