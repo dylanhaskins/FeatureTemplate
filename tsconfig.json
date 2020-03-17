@@ -4,7 +4,7 @@
     "noEmitOnError": true,
     "module": "commonjs",
     "target": "ES6",
-    "outDir": "./dist",
+    "sourceMap": true,
     "esModuleInterop": true
   },
   "exclude": [

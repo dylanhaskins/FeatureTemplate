@@ -229,13 +229,13 @@
     <Folder Include="WebResources\src\css\" />
     <Folder Include="WebResources\src\html\" />
     <Folder Include="WebResources\src\images\" />
-    <Folder Include="WebResources\typings\" />
     <Folder Include="Workflows\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Deployment\FeatureTemplate\ImportConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="gulpfile.js" />
     <Content Include="map.xml" />
     <Content Include="ReferenceData\data.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -246,7 +246,6 @@
     <Content Include="ReferenceData\[Content_Types].xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="webpack.config.js" />
     <Content Include="XrmContext\FSharp.Core.dll" />
     <Content Include="XrmContext\Microsoft.Crm.Sdk.Proxy.dll" />
     <Content Include="XrmContext\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" />
