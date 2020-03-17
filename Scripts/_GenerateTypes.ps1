@@ -56,17 +56,17 @@ Get-ChildItem (Join-Path $PSScriptRoot "..\Entities\Context") -Name | ForEach-Ob
 	$addNode.Include = "Entities\Context\$_"; $newnodes[0].ParentNode.AppendChild($addNode)
 }
 
-$nodes = $xdoc.SelectNodes("//a:TypeScriptCompile[contains(@Include,'WebResources\typings\XRM')]",$nsmgr)
-for ($i=0; $i -le ($nodes.Count-1); $i++)
-        {
-            $nodes[$i].ParentNode.RemoveChild($nodes[$i])
-        }
+#$nodes = $xdoc.SelectNodes("//a:TypeScriptCompile[contains(@Include,'WebResources\typings\XRM')]",$nsmgr)
+#for ($i=0; $i -le ($nodes.Count-1); $i++)
+#        {
+#            $nodes[$i].ParentNode.RemoveChild($nodes[$i])
+#        }
 
-Get-ChildItem (Join-Path $PSScriptRoot "..\WebResources\typings\XRM") -Name -Recurse | ForEach-Object {
-	$newnodes = $xdoc.SelectNodes("//a:TypeScriptCompile",$nsmgr)
-    $addNode = $newnodes[0].Clone()
-	$addNode.Include = "WebResources\typings\XRM\$_"; $newnodes[0].ParentNode.AppendChild($addNode)
-}
+#Get-ChildItem (Join-Path $PSScriptRoot "..\WebResources\typings\XRM") -Name -Recurse | ForEach-Object {
+#	$newnodes = $xdoc.SelectNodes("//a:TypeScriptCompile",$nsmgr)
+#    $addNode = $newnodes[0].Clone()
+#	$addNode.Include = "WebResources\typings\XRM\$_"; $newnodes[0].ParentNode.AppendChild($addNode)
+#}
 
 $xdoc.Save((Join-Path $PSScriptRoot "..\ProjName.csproj"))
 }
