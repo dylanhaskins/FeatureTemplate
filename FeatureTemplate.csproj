@@ -246,6 +246,11 @@
     <Content Include="ReferenceData\[Content_Types].xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="WebResources\src\library\dg.xrmquery.rest.js" />
+    <Content Include="WebResources\src\library\dg.xrmquery.rest.min.js" />
+    <Content Include="WebResources\src\library\dg.xrmquery.web.js" />
+    <Content Include="WebResources\src\library\dg.xrmquery.web.min.js" />
+    <Content Include="WebResources\src\library\dg.xrmquery.web.promise.min.js" />
     <Content Include="XrmContext\FSharp.Core.dll" />
     <Content Include="XrmContext\Microsoft.Crm.Sdk.Proxy.dll" />
     <Content Include="XrmContext\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" />
