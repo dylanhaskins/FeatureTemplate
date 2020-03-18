@@ -8,6 +8,10 @@
     "outDir": "dist/js",
     "esModuleInterop": true
   },
+  "include": [
+    "WebResources/src/ts/**/*",
+    "WebResources/typings/**/*"
+  ],
   "exclude": [
     "node_modules",
     "wwwroot"
