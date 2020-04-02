@@ -36,6 +36,10 @@
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
+    <PropertyGroup>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptCompileOnSaveEnabled>False</TypeScriptCompileOnSaveEnabled>
+  </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>FeatureTemplate.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
@@ -48,6 +52,19 @@
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'GenerateXrmTypes|AnyCPU' ">
+    <OutputPath>bin\GenerateTypes\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+    <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -289,12 +306,13 @@
   <PropertyGroup>
     <PreBuildEvent>if $(ConfigurationName) == SolutionPackager (powershell.exe -ExecutionPolicy Bypass -Command "&amp; ..\..\Scripts\SolutionExport.ps1 -DevMode $true")
 
-npm run dist</PreBuildEvent>
+if $(ConfigurationName) == GenerateXrmTypes (powershell.exe -ExecutionPolicy Bypass -Command "&amp; ..\..\Scripts\_GenerateTypes.ps1 -DevMode $true")
+
+</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>cmd.exe /C compile.bat $(ConfigurationName)
-
-
+    <PostBuildEvent>cmd.exe /C Compile.bat $(ConfigurationName)
+npm run dist
 
 </PostBuildEvent>
   </PropertyGroup>
