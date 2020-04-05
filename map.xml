@@ -3,4 +3,5 @@
   <FileToFile map="PluginAssemblies\**\PowerPlatformDevOpsPlugins.dll" to="..\bin\**\PowerPlatformDevOpsPlugins.dll" />
   <FileToPath map="WebResources\*.*" to="..\dist\**" />
   <FileToPath map="WebResources\**\*.*" to="..\dist\**" />
+  <FileToFile map="EnvironmentVariables\environment_variable_values.json" to="..\Deployment\PowerPlatformDevOps\EnvironmentVariables\environment_variable_values.json" />
 </Mapping>
