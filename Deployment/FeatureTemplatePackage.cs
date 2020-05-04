@@ -35,6 +35,13 @@ namespace Deployment
 
         public override UserRequestedImportAction OverrideSolutionImportDecision(string solutionUniqueName, Version organizationVersion, Version packageSolutionVersion, Version inboundSolutionVersion, Version deployedSolutionVersion, ImportAction systemSelectedImportAction)
         {
+
+            if (systemSelectedImportAction == ImportAction.SkipLowerVersion || systemSelectedImportAction == ImportAction.SkipSameVersion)
+            {
+                DataImportBypass = true;
+                PackageLog.Log("Bypassing Data Import");
+            }
+        
             return ((systemSelectedImportAction == ImportAction.Import) && solutionUniqueName.Contains("Patch"))
                 ? UserRequestedImportAction.ForceUpdate
                 : base.OverrideSolutionImportDecision(solutionUniqueName, organizationVersion, packageSolutionVersion,

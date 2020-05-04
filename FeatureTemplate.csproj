@@ -64,7 +64,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
     <PropertyGroup>
-    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -301,9 +301,9 @@
     <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.exe" />
     <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.xml" />
   </ItemGroup>
-  <Import Project="..\Common\Common\Common.projitems" Label="Shared" />
+  <Import Project="..\Common\Common.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
+   <PropertyGroup>
     <PreBuildEvent>if $(ConfigurationName) == SolutionPackager (powershell.exe -ExecutionPolicy Bypass -Command "&amp; ..\..\Scripts\SolutionExport.ps1 -DevMode $true")
 
 if $(ConfigurationName) == GenerateXrmTypes (powershell.exe -ExecutionPolicy Bypass -Command "&amp; ..\..\Scripts\_GenerateTypes.ps1 -DevMode $true")

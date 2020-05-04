@@ -1,11 +1,3 @@
-
-
-if (!$Credentials) {$Credentials = Get-Credential -Message "Credentials : $global:SolutionName @ $global:ServerUrl"}
-if (!$conn) {$conn = Connect-CrmOnline -Credential $Credentials -ServerUrl $global:ServerUrl}
-
-if($conn.IsReady){
-
-
 $message = "Exporting Configuration Data from $global:ServerUrl"
 Write-Host $message
 $ProgressBar = New-BTProgressBar -Status $message -Value 0.3
@@ -31,4 +23,4 @@ $packages = Get-CrmDataPackage -Conn $conn -Fetches @("<fetch>
 
 $packages.Data.InnerXml | Out-File -FilePath  (Join-Path $PSScriptRoot "..\ReferenceData\data.xml")
 $packages.Schema.InnerXml | Out-File -FilePath (Join-Path $PSScriptRoot "..\ReferenceData\data_schema.xml")
-}
+
