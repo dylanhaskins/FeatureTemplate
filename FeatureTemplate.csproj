@@ -36,7 +36,7 @@
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
-    <PropertyGroup>
+  <PropertyGroup>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptCompileOnSaveEnabled>False</TypeScriptCompileOnSaveEnabled>
   </PropertyGroup>
@@ -53,7 +53,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'GenerateXrmTypes|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'GenerateXrmTypes|AnyCPU' ">
     <OutputPath>bin\GenerateTypes\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
@@ -63,7 +63,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-    <PropertyGroup>
+  <PropertyGroup>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
@@ -202,31 +202,13 @@
     <None Include="Scripts\config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Scripts\SolutionDeploy.ps1">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Scripts\SolutionExport.ps1">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Scripts\SolutionPack.ps1">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Scripts\_Config.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Scripts\_ConfigMigration.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Scripts\_ExportSolution.ps1">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Scripts\_GenerateTypes.ps1">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Scripts\_SetupTools.ps1">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Scripts\_UpdateVersion.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="spkl.json" />
@@ -252,7 +234,6 @@
     <Content Include="Deployment\FeatureTemplate\ImportConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="gulpfile.js" />
     <Content Include="map.xml" />
     <Content Include="ReferenceData\data.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -263,6 +244,7 @@
     <Content Include="ReferenceData\[Content_Types].xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="webpack.config.js" />
     <Content Include="WebResources\src\library\dg.xrmquery.rest.js" />
     <Content Include="WebResources\src\library\dg.xrmquery.rest.min.js" />
     <Content Include="WebResources\src\library\dg.xrmquery.web.js" />
@@ -303,7 +285,7 @@
   </ItemGroup>
   <Import Project="..\Common\Common.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-   <PropertyGroup>
+  <PropertyGroup>
     <PreBuildEvent>if $(ConfigurationName) == SolutionPackager (powershell.exe -ExecutionPolicy Bypass -Command "&amp; ..\..\Scripts\SolutionExport.ps1 -DevMode $true")
 
 if $(ConfigurationName) == GenerateXrmTypes (powershell.exe -ExecutionPolicy Bypass -Command "&amp; ..\..\Scripts\_GenerateTypes.ps1 -DevMode $true")
