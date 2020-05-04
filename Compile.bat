@@ -14,8 +14,7 @@ For /R %package_root% %%G IN (Microsoft.Xrm.Tooling.Connector.dll) do (
 
 :continue
 @echo Using '%xrm_path%' 
-roslyn\csc.exe /target:library ..\..\Entities\Context\*.cs ..\..\..\Common\Plugins\ImageHelpers.cs ..\..\..\Common\Helper\JSONHelper.cs  /r:"Microsoft.Xrm.Sdk.dll","Microsoft.Crm.Sdk.Proxy.dll" /out:CCMS.Entities.dll
-roslyn\csc.exe /target:library ..\..\Deployment\FeatureTemplatePackage.cs /r:"%xrm_path%" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.1\System.ComponentModel.Composition.dll","%tooling_path%","Microsoft.Xrm.Sdk.dll","Microsoft.Crm.Sdk.Proxy.dll","CCMS.Entities.dll"
+roslyn\csc.exe /target:library ..\..\Deployment\FeatureTemplatePackage.cs /r:"%xrm_path%" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.1\System.ComponentModel.Composition.dll"
 
 xcopy FeatureTemplatePackage.dll ..\..\..\PackageDeployer\bin\%1\. /y
 xcopy Deployment\. ..\..\..\PackageDeployer\bin\%1\. /s/e/y
