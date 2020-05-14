@@ -41,6 +41,11 @@ namespace Deployment
                 DataImportBypass = true;
                 PackageLog.Log("Bypassing Data Import");
             }
+            else
+            {
+                DataImportBypass = false;
+                PackageLog.Log("Disabling Data Import Bypass");
+            }
         
             return ((systemSelectedImportAction == ImportAction.Import) && solutionUniqueName.Contains("Patch"))
                 ? UserRequestedImportAction.ForceUpdate
